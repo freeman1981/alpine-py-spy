@@ -19,7 +19,7 @@ Get process pid from host point of view
 
 Run to get `/tmp/spy/profile.svg`
 
-`sudo docker run -it --rm --pid="host" --privileged -v /tmp/spy:/tmp/spy alpspy py-spy record -o /tmp/spy/profile.svg --pid <ранее полученный пид>`
+`sudo docker run -it --rm --pid="host" --privileged -v /tmp/spy:/tmp/spy alpspy py-spy record -o /tmp/spy/profile.svg --pid <PID>`
 
 After waiting a while, press `ctrl+c`. 
 Let's go look at the picture and see what we expected - the function `slow` was executed the longest.
