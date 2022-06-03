@@ -7,13 +7,13 @@ I don't know how this thing works, but it works!
 
 Here is an example for a very special case.
 ```bash
-docker run -it --rm -v $(pwd):/src python:alpine python /src/script.py
+docker run -it --rm --name test -v $(pwd):/src python:alpine python /src/script.py
 ```
 
 Get process pid from host point of view
 ```bash 
-ps aux | grep script.py
-sudo docker run -it --rm --pid="host" --privileged -v /tmp/spy:/tmp/spy freeman1981/py-spy-alpine py-spy record -o /tmp/spy/profile.svg --pid <PID>
+docker top test  # get PID and paste to command
+docker run -it --rm --pid="host" --privileged -v /tmp/spy:/tmp/spy freeman1981/py-spy-alpine py-spy record -o /tmp/spy/profile.svg --pid <PID>
 ```
 
 After waiting a while, press `ctrl+c`. 
